@@ -1,0 +1,44 @@
+# Data Dictionary - Gold Layer
+## fact_orders
+| Column | Type | Description | Source |
+|--------|------|-------------|--------|
+| order_id | String | Unique order line identifier | silver_orders |
+| customer_key | Long | Surrogate key -> dim_customer | Generated
+(monotonically_increasing_id) |
+| product_key | Long | Surrogate key -> dim_product | Generated |
+| date_key | Integer | Date key in yyyyMMdd format -> dim_date | Derived from
+order_date |
+| region | String | Sales region (West/East/Central/South) | silver_orders |
+| sales | Double | Order line revenue in USD | silver_orders |
+| quantity | Integer | Number of units ordered | silver_orders |
+| discount | Double | Discount rate (0.0 to 1.0) | silver_orders |
+| profit | Double | Order line profit in USD | silver_orders |
+## dim_customer
+| Column | Type | Description | SCD |
+|--------|------|-------------|-----|
+| customer_key | Long | Surrogate key (unique per version) | Type 2 |
+| customer_id | String | Business customer identifier | Type 1 |
+| customer_name | String | Full customer name | Type 1 |
+| segment | String | Customer segment (Consumer/Corporate/Home Office) | Type 2 |
+| start_date | Date | Date this row became active | Type 2 |
+| end_date | Date | Date this row was superseded (null = current) | Type 2 |
+| is_current | Boolean | True = active row | Type 2 |
+## dim_product
+| Column | Type | Description |
+
+|--------|------|-------------|
+| product_key | Long | Surrogate key |
+| product_id | String | Business product identifier |
+| product_name | String | Full product name |
+| category | String | Product category (Furniture/Technology/Office Supplies) |
+| sub_category | String | Product sub-category |
+## dim_date
+| Column | Type | Description |
+|--------|------|-------------|
+| date_key | Integer | Date in yyyyMMdd integer format (join key) |
+| order_date | Date | Calendar date |
+| year | Integer | Calendar year |
+| quarter | Integer | Calendar quarter (1-4) |
+| month | Integer | Calendar month (1-12) |
+| month_name | String | Full month name (January-December) |
+| day_of_week | String | Full day name (Monday-Sunday) |
