@@ -1,6 +1,3 @@
-# Superstore Fabric Analytics
-
-This repository contains an end-to-end Microsoft Fabric data engineering and Power BI analytics project built using PySpark, Delta Lake, and the Medallion Architecture.
 
 ## Repository Structure
 
