@@ -35,8 +35,7 @@ custom tooltips, Row-Level Security
 3-4 bullet points explaining WHY you made specific choices.
 Example: 'Used processed_timestamp (not order_date) as the watermark column
 to correctly handle late-arriving data in the incremental load.'
-## Live Report
-[View the published Power BI report](paste-your-workspace-report-URL-here)
+
 ## Repository Structure
 Brief description of each folder.
 ## Dataset
